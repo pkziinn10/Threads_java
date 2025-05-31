@@ -83,7 +83,7 @@ Para garantir robustez e eficiência, implementamos:
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/ordenacao-paralela-threads-java.git
+git clone https://github.com/pkziinn10/ordenacao-paralela-threads-java.git
 
 # 2. Acesse o diretório
 cd ordenacao-paralela-threads-java
