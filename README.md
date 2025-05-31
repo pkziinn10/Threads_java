@@ -26,6 +26,25 @@ O programa principal aguarda a conclusão de todas as threads antes de prossegui
 
 Exibe o vetor completo e as partes ordenadas individualmente.
 
+## Fluxo de Execução
+
+```mermaid
+graph TD
+    A[Início] --> B[Gerar vetor com 1000 números]
+    B --> C[Dividir em 10 partes]
+    C --> D[Criar 10 threads]
+    D --> E[Iniciar ordenação paralela]
+    E --> F[Thread 1 ordena parte 1]
+    E --> G[Thread 2 ordena parte 2]
+    E --> H[Thread ...]
+    E --> I[Thread 10 ordena parte 10]
+    F --> J[Aguardar término das threads]
+    G --> J
+    H --> J
+    I --> J
+    J --> K[Imprimir resultados]
+    K --> L[Fim]
+```
 ## Estrutura do Projeto
 
 ```
