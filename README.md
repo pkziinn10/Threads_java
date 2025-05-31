@@ -1,6 +1,40 @@
 # 🧵 Ordenação Paralela com Threads em Java ⚡️
 
-## Etapas do Processo
+[![Java](https://img.shields.io/badge/Java-17%2B-orange?logo=openjdk)](https://www.oracle.com/java/)
+
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
+[![GitHub stars](https://img.shields.io/github/stars/pkziinn10/ordenacao-paralela-threads-java?style=social)](https://github.com/pkziinn10/ordenacao-paralela-threads-java)
+
+> **Projeto de demonstração de programação concorrente em Java para ordenação paralela de dados**
+
+Este projeto ilustra a aplicação prática de threads em Java para ordenar partes de um vetor simultaneamente. Através do processamento paralelo, o sistema demonstra ganhos de eficiência na ordenação de grandes conjuntos de dados.
+
+## 📋 Índice
+
+- [Etapas do Processo](#-etapas-do-processo)
+
+- [Fluxo de Execução](#-fluxo-de-execução)
+
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+
+- [Execução do Projeto](#-execução-do-projeto)
+
+- [Saída do Programa](#-saída-do-programa)
+
+- [Relevância Técnica](#-relevância-técnica)
+
+- [Melhorias Futuras](#-melhorias-futuras)
+
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+
+- [Contribuição](#-contribuição)
+
+- [Licença](#-licença)
+
+---
+
+## 🔄 Etapas do Processo
 
 1. **Geração de números aleatórios**
 
@@ -12,7 +46,7 @@ Divide o vetor em 10 partes de 100 elementos cada.
 
 3. **Criação e inicialização de threads**
 
-Cria 10 threads, cada uma responsável por ordenar uma parte do vetor.
+Instancia 10 threads, cada uma responsável por ordenar uma parte do vetor.
 
 4. **Ordenação paralela com `Arrays.sort()`**
 
@@ -26,74 +60,99 @@ O programa principal aguarda a conclusão de todas as threads antes de prossegui
 
 Exibe o vetor completo e as partes ordenadas individualmente.
 
-## Fluxo de Execução
+---
+
+## 📊 Fluxo de Execução
 
 ```mermaid
+
 graph TD
-    A[Início] --> B[Gerar vetor com 1000 números]
-    B --> C[Dividir em 10 partes]
-    C --> D[Criar 10 threads]
-    D --> E[Iniciar ordenação paralela]
-    E --> F[Thread 1 ordena parte 1]
-    E --> G[Thread 2 ordena parte 2]
-    E --> H[Thread ...]
-    E --> I[Thread 10 ordena parte 10]
-    F --> J[Aguardar término das threads]
-    G --> J
-    H --> J
-    I --> J
-    J --> K[Imprimir resultados]
-    K --> L[Fim]
+
+A[Início] --> B[Gerar vetor com 1000 números]
+
+B --> C[Dividir em 10 partes]
+
+C --> D[Criar 10 threads]
+
+D --> E[Iniciar ordenação paralela]
+
+E --> F[Thread 1 ordena parte 1]
+
+E --> G[Thread 2 ordena parte 2]
+
+E --> H[Thread ...]
+
+E --> I[Thread 10 ordena parte 10]
+
+F --> J[Aguardar término das threads]
+
+G --> J
+
+H --> J
+
+I --> J
+
+J --> K[Imprimir resultados]
+
+K --> L[Fim]
+
 ```
-## Estrutura do Projeto
+
+---
+
+## 📂 Estrutura do Projeto
 
 ```
 
 ordenacao-paralela-threads-java/
 
-├── TarefaOrdenacao.java    # Lógica de ordenação
+├── TarefaOrdenacao.java    # Implementa Runnable para ordenação de partes
 
-├── GerenciadorArray.java   # Manipulação de dados
+├── GerenciadorArray.java   # Gerencia geração, divisão e impressão do array
 
-├── Main.java               # Ponto de entrada
+├── Main.java               # Coordena threads e fluxo principal
 
-├── README.md               # Documentação
+├── README.md               # Documentação do projeto
 
-└── .gitignore              # Configuração Git
+└── .gitignore              # Arquivos ignorados pelo Git
 
 ```
 
-## Execução do Projeto
+---
+
+## 🚀 Execução do Projeto
 
 ### Pré-requisitos
 
 - Java JDK 17+
 
-- Terminal/Command Prompt
+- Git (opcional)
 
-### Comandos:
+### Passos:
 
 ```bash
 
-# Clonar repositório
+# Clone o repositório
 
-git clone https://github.com/seu-usuario/ordenacao-paralela-threads-java.git
+git clone https://github.com/pkziinn10/ordenacao-paralela-threads-java.git
 
-# Acessar diretório
+# Acesse o diretório
 
 cd ordenacao-paralela-threads-java
 
-# Compilar
+# Compile os arquivos
 
 javac *.java
 
-# Executar
+# Execute o programa
 
 java Main
 
 ```
 
-## Saída do Programa
+---
+
+## 💻 Saída do Programa
 
 ```
 
@@ -129,7 +188,9 @@ Parte 2:
 
 ```
 
-## Relevância Técnica
+---
+
+## 🧠 Relevância Técnica
 
 - **Aplicação prática de programação concorrente**
 
@@ -161,7 +222,9 @@ Ideal para estudantes e profissionais aprenderem sobre concorrência.
 
 - Algoritmos de machine learning
 
-## Melhorias Futuras
+---
+
+## 🔮 Melhorias Futuras
 
 1. **Benchmark de desempenho**
 
@@ -193,44 +256,48 @@ Ideal para estudantes e profissionais aprenderem sobre concorrência.
 
 - Gráficos comparativos
 
-## Tecnologias Utilizadas
+---
 
-| Tecnologia          | Uso                              | Versão |
+## 🛠 Tecnologias Utilizadas
 
-|---------------------|----------------------------------|--------|
+| Tecnologia          | Uso                              |
 
-| Java                | Linguagem principal             | 17+    |
+|---------------------|----------------------------------|
 
-| Runnable            | Interface para threads          | -      |
+| ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) | Linguagem principal |
 
-| Arrays.sort()       | Algoritmo de ordenação          | -      |
+| ![Threads](https://img.shields.io/badge/Threads-10-blue) | Processamento paralelo |
 
-| System.arraycopy()  | Manipulação eficiente de arrays | -      |
+| `Arrays.sort()`     | Algoritmo de ordenação eficiente |
 
-## Contribuição
+| `System.arraycopy()`| Manipulação otimizada de arrays  |
 
-1. **Faça fork do projeto**
+---
 
-`git fork`
+## 👥 Contribuição
 
-2. **Crie sua branch**
+Contribuições são bem-vindas! Siga os passos:
 
-`git checkout -b feature/nova-feature`
+1. **Faça um fork** do projeto
 
-3. **Commit suas alterações**
+2. **Crie uma branch** para sua feature (`git checkout -b feature/incrivel`)
 
-`git commit -m 'Add feature'`
+3. **Commit suas mudanças** (`git commit -m 'Adiciona feature incrível'`)
 
-4. **Push para a branch**
-
-`git push origin feature/nova-feature`
+4. **Push para a branch** (`git push origin feature/incrivel`)
 
 5. **Abra um Pull Request**
 
-## Licença
+---
 
-Distribuído sob licença MIT. Consulte [LICENSE](LICENSE) para detalhes.
+## 📜 Licença
 
-**Desenvolvedor:** [Pedro Kauan]
+Distribuído sob a licença MIT. Veja [LICENSE](LICENSE) para mais informações.
 
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-blue?logo=github)](https://github.com/pkziinn10)
+**Desenvolvedor:** Pedro Kauan
+
+[![GitHub](https://img.shields.io/badge/GitHub-pkziinn10-blue?logo=github)](https://github.com/pkziinn10)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue?logo=linkedin)](https://www.linkedin.com/in/pkziinn10/)
+
+```
