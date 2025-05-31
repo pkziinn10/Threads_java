@@ -1,95 +1,217 @@
 # 🧵 Ordenação Paralela com Threads em Java ⚡️
 
-**Ordenação Paralela com Threads em Java** é um projeto que demonstra o poder da computação paralela aplicada à ordenação de dados. Utilizando múltiplas threads para processar diferentes partes de um vetor simultaneamente, este projeto oferece uma solução eficiente para ordenação de grandes conjuntos de dados, mostrando na prática os benefícios da programação concorrente.
+## Etapas do Processo
 
-## 📌 Funcionalidades
+1. **Geração de números aleatórios**
 
-- **Geração de dados aleatórios**  
-  - Cria um vetor de 1000 números inteiros positivos entre 1 e 10000
+Cria um vetor de 1000 números inteiros positivos entre 1 e 10000.
 
-- **Divisão inteligente**  
-  - Separa o vetor em 10 partes de 100 elementos cada
+2. **Divisão do vetor em partes iguais**
 
-- **Ordenação paralela**  
-  - Cada parte é ordenada por uma thread independente
+Divide o vetor em 10 partes de 100 elementos cada.
 
-- **Visualização clara**  
-  - Impressão do vetor completo após ordenação  
-  - Exibição individual das 10 partes ordenadas
+3. **Criação e inicialização de threads**
 
-- **Monitoramento em tempo real**  
-  - Mensagens de log mostrando o progresso de cada thread
+Cria 10 threads, cada uma responsável por ordenar uma parte do vetor.
 
-## ⚙️ Arquitetura e Boas Práticas
+4. **Ordenação paralela com `Arrays.sort()`**
 
-Este projeto segue princípios modernos de desenvolvimento de software, visando qualidade e eficiência:
+Cada thread ordena sua parte de forma independente usando o método `Arrays.sort()`.
 
-### 🧱 Padrões de Projeto
+5. **Sincronização com `join()`**
 
-- **Separação de Responsabilidades**  
-  - Divisão clara entre geração de dados, processamento e exibição
+O programa principal aguarda a conclusão de todas as threads antes de prosseguir.
 
-- **Encapsulamento**  
-  - Detalhes de implementação protegidos em classes especializadas
+6. **Impressão dos resultados formatados**
 
-- **Programação Orientada a Interfaces**  
-  - Uso da interface `Runnable` para tarefas paralelas
+Exibe o vetor completo e as partes ordenadas individualmente.
 
-### ⚡️ Concorrência
+## Estrutura do Projeto
 
-- **Modelo de threads**  
-  - Execução paralela de cada subvetor por threads independentes
+```
 
-- **Sincronização com `join()`**  
-  - Coordenação das threads para aguardar a conclusão de todas antes de prosseguir
+ordenacao-paralela-threads-java/
 
-- **Tarefas independentes**  
-  - Cada thread opera exclusivamente em seu subvetor, garantindo máxima eficiência
+├── TarefaOrdenacao.java    # Lógica de ordenação
 
-### 📐 Boas Práticas
+├── GerenciadorArray.java   # Manipulação de dados
 
-- **Mensagens informativas de log**  
-- **Formatação de saída para melhor visualização**  
-- **Tratamento adequado de exceções**
+├── Main.java               # Ponto de entrada
 
-## 🧪 Qualidade de Código
+├── README.md               # Documentação
 
-Para garantir robustez e eficiência, implementamos:
+└── .gitignore              # Configuração Git
 
-- **Validação de Dados**  
-  - Garantia de números dentro do intervalo especificado
+```
 
-- **Constantes Configuráveis**  
-  - Flexibilidade para ajustes (tamanhos, intervalos)
+## Execução do Projeto
 
-- **Documentação Clara**  
-  - Código autoexplicativo com comentários estratégicos
+### Pré-requisitos
 
-## 🧠 Conceitos Técnicos Aplicados
+- Java JDK 17+
 
-### ⚡️ Programação Concorrente
+- Terminal/Command Prompt
 
-- Utilização de threads para processamento paralelo  
-- Implementação da interface `Runnable` para tarefas paralelizáveis  
-- Sincronização com `thread.join()` para coordenação de execução
-
-### 📊 Estrutura de Dados
-
-- Manipulação eficiente de arrays com `System.arraycopy()`  
-- Algoritmo de ordenação otimizado com `Arrays.sort()`  
-- Organização de dados em matrizes bidimensionais
-
-## ⚡️ Como Executar
+### Comandos:
 
 ```bash
-# 1. Clone o repositório
-git clone https://github.com/pkziinn10/ordenacao-paralela-threads-java.git
 
-# 2. Acesse o diretório
+# Clonar repositório
+
+git clone https://github.com/seu-usuario/ordenacao-paralela-threads-java.git
+
+# Acessar diretório
+
 cd ordenacao-paralela-threads-java
 
-# 3. Compile os arquivos
+# Compilar
+
 javac *.java
 
-# 4. Execute o programa
+# Executar
+
 java Main
+
+```
+
+## Saída do Programa
+
+```
+
+Thread 1: Ordenação iniciada
+
+Thread 2: Ordenação iniciada
+
+...
+
+Thread 10: Ordenação concluída
+
+VETOR COMPLETO:
+
+[parte1] [parte2] ... [parte10]
+
+PARTES ORDENADAS:
+
+Parte 1:
+
+3   8  15  22  30  37  45  52  60  67
+
+75  82  89  97 105 112 120 127 135 142
+
+...
+
+Parte 2:
+
+102 115 129 142 156 169 183 196 210 223
+
+237 250 264 277 291 304 318 331 345 358
+
+...
+
+```
+
+## Relevância Técnica
+
+- **Aplicação prática de programação concorrente**
+
+Demonstra como utilizar threads para processamento paralelo.
+
+- **Demonstração de ganhos de desempenho**
+
+Comparação entre a execução serial e paralela.
+
+- **Padrão de divisão de tarefas**
+
+Divide um problema grande em partes menores para processamento simultâneo.
+
+- **Base para sistemas distribuídos**
+
+Pode ser estendido para sistemas distribuídos.
+
+- **Exemplo educativo para aprendizado de threads**
+
+Ideal para estudantes e profissionais aprenderem sobre concorrência.
+
+### Casos de uso:
+
+- Processamento de grandes datasets
+
+- Sistemas de análise de dados
+
+- Aplicações de big data
+
+- Algoritmos de machine learning
+
+## Melhorias Futuras
+
+1. **Benchmark de desempenho**
+
+- Comparação serial vs paralelo
+
+- Métricas de tempo de execução
+
+2. **Interface gráfica**
+
+- Visualização do processo
+
+- Controles interativos
+
+3. **Escalabilidade dinâmica**
+
+- Configuração de tamanho do vetor
+
+- Ajuste automático de threads
+
+4. **Novos algoritmos**
+
+- Implementação de quicksort/mergesort
+
+- Comparação de eficiência
+
+5. **Exportação de resultados**
+
+- Geração de relatórios em CSV
+
+- Gráficos comparativos
+
+## Tecnologias Utilizadas
+
+| Tecnologia          | Uso                              | Versão |
+
+|---------------------|----------------------------------|--------|
+
+| Java                | Linguagem principal             | 17+    |
+
+| Runnable            | Interface para threads          | -      |
+
+| Arrays.sort()       | Algoritmo de ordenação          | -      |
+
+| System.arraycopy()  | Manipulação eficiente de arrays | -      |
+
+## Contribuição
+
+1. **Faça fork do projeto**
+
+`git fork`
+
+2. **Crie sua branch**
+
+`git checkout -b feature/nova-feature`
+
+3. **Commit suas alterações**
+
+`git commit -m 'Add feature'`
+
+4. **Push para a branch**
+
+`git push origin feature/nova-feature`
+
+5. **Abra um Pull Request**
+
+## Licença
+
+Distribuído sob licença MIT. Consulte [LICENSE](LICENSE) para detalhes.
+
+**Desenvolvedor:** [Pedro Kauan]
+
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-blue?logo=github)](https://github.com/pkziinn10)
